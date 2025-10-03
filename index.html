@@ -3,140 +3,1244 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stone Products</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<title>GiftCraft - מתנות איכותיות ומעוצבות</title>
+<meta name="description" content="חנות המתנות המובילה בישראל - מתנות איכותיות, מעוצבות וייחודיות לכל אירוע. משלוחים מהירים ואחריות מלאה.">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 <style>
-  body { font-family: 'Montserrat', sans-serif; margin:0; background:#f4f4f4; color:#333; direction:rtl; }
-  a { text-decoration:none; color:inherit; }
-  header { background:#2c3e50; color:white; text-align:center; padding:25px 20px; direction:ltr; }
-  header h1 { font-size:2.5em; }
-  header p { font-size:1.2em; margin-top:5px; }
-  nav { background:#34495e; display:flex; justify-content:center; gap:20px; padding:12px 0; }
-  nav a { color:white; font-weight:600; transition:color 0.3s; }
-  nav a:hover { color:#e67e22; }
-  .hero { background:url('https://via.placeholder.com/1600x400') no-repeat center/cover; text-align:center; padding:60px 20px; color:white; }
-  .hero h2 { font-size:2em; margin-bottom:10px; }
-  .hero p { font-size:1.2em; }
-  .container { max-width:1200px; margin:20px auto; padding:0 20px; }
-  .search-bar { text-align:center; margin-bottom:20px; }
-  .search-bar input { padding:10px; width:250px; border-radius:5px; border:1px solid #ccc; }
-  .categories { text-align:center; margin-bottom:30px; }
-  .categories button { padding:8px 15px; margin:0 5px 10px 5px; border:none; border-radius:5px; background:#2c3e50; color:white; cursor:pointer; transition:background-color 0.3s; }
-  .categories button:hover, .categories button.active { background:#e67e22; }
-  .product-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; }
-  .product-card { background:white; border-radius:10px; overflow:hidden; position:relative; box-shadow:0 4px 15px rgba(0,0,0,0.1); transition:transform 0.3s,box-shadow 0.3s; }
-  .product-card:hover { transform:translateY(-5px); box-shadow:0 10px 20px rgba(0,0,0,0.2); }
-  .product-card img { width:100%; height:200px; object-fit:cover; }
-  .product-info { padding:15px; }
-  .product-info h2 { font-size:1.2em; margin-bottom:10px; color:#2c3e50; }
-  .product-info p { font-size:0.95em; margin-bottom:10px; }
-  .price { font-weight:bold; color:#e67e22; font-size:1.1em; }
-  .product-card button { padding:10px 15px; background:#e67e22; border:none; color:white; font-weight:bold; border-radius:5px; cursor:pointer; transition:background-color 0.3s; }
-  .product-card button:hover { background:#d35400; }
-  footer { background:#2c3e50; color:white; text-align:center; padding:20px; margin-top:40px; }
-  @media(max-width:768px){.product-card img{height:180px;}} 
-  @media(max-width:480px){.product-card img{height:150px;}}
+  :root {
+    --primary-color: #2c3e50;
+    --secondary-color: #e67e22;
+    --accent-color: #f39c12;
+    --text-dark: #2c3e50;
+    --text-light: #7f8c8d;
+    --bg-light: #f8f9fa;
+    --bg-white: #ffffff;
+    --shadow: 0 4px 20px rgba(0,0,0,0.1);
+    --shadow-hover: 0 8px 30px rgba(0,0,0,0.15);
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+  }
+
+  * { box-sizing: border-box; }
+  
+  body { 
+    font-family: 'Montserrat', sans-serif; 
+    margin: 0; 
+    background: var(--bg-light); 
+    color: var(--text-dark); 
+    direction: rtl; 
+    line-height: 1.6;
+  }
+  
+  a { text-decoration: none; color: inherit; }
+  
+  /* Header */
+  header { 
+    background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%); 
+    color: white; 
+    text-align: center; 
+    padding: 30px 20px; 
+    position: relative;
+    overflow: hidden;
+  }
+  
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+  }
+  
+  header h1 { 
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5em; 
+    margin: 0 0 10px 0; 
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+  
+  header p { 
+    font-size: 1.3em; 
+    margin: 0;
+    position: relative;
+    opacity: 0.9;
+  }
+  
+  /* Navigation */
+  nav { 
+    background: rgba(52, 73, 94, 0.95); 
+    backdrop-filter: blur(10px);
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    gap: 30px; 
+    padding: 15px 0; 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+  }
+  
+  nav a { 
+    color: white; 
+    font-weight: 500; 
+    transition: var(--transition);
+    padding: 10px 20px;
+    border-radius: 25px;
+    position: relative;
+  }
+  
+  nav a:hover { 
+    color: var(--secondary-color);
+    background: rgba(255,255,255,0.1);
+  }
+  
+  .cart-icon {
+    position: relative;
+    margin-left: auto;
+    margin-right: 20px;
+  }
+  
+  .cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--secondary-color);
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+  
+  /* Hero Section */
+  .hero { 
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(52, 73, 94, 0.8)), 
+                url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center/cover; 
+    text-align: center; 
+    padding: 100px 20px; 
+    color: white;
+    position: relative;
+  }
+  
+  .hero h2 { 
+    font-family: 'Playfair Display', serif;
+    font-size: 3em; 
+    margin-bottom: 15px; 
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+  }
+  
+  .hero p { 
+    font-size: 1.4em; 
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    margin-bottom: 30px;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+  }
+  
+  .cta-button:hover {
+    background: #d35400;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+  }
+  
+  /* Container */
+  .container { 
+    max-width: 1200px; 
+    margin: 40px auto; 
+    padding: 0 20px; 
+  }
+  
+  /* Search and Filters */
+  .search-section {
+    background: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+  }
+  
+  .search-bar { 
+    text-align: center; 
+    margin-bottom: 25px; 
+  }
+  
+  .search-bar input { 
+    padding: 15px 20px; 
+    width: 100%;
+    max-width: 400px;
+    border: 2px solid #e0e0e0;
+    border-radius: 30px; 
+    font-size: 16px;
+    transition: var(--transition);
+    background: #f8f9fa;
+  }
+  
+  .search-bar input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+  }
+  
+  .categories { 
+    text-align: center; 
+    margin-bottom: 30px; 
+  }
+  
+  .categories button { 
+    padding: 12px 25px; 
+    margin: 5px; 
+    border: 2px solid transparent;
+    border-radius: 25px; 
+    background: var(--bg-light);
+    color: var(--text-dark); 
+    cursor: pointer; 
+    transition: var(--transition);
+    font-weight: 500;
+  }
+  
+  .categories button:hover, 
+  .categories button.active { 
+    background: var(--secondary-color); 
+    color: white;
+    transform: translateY(-2px);
+  }
+  
+  /* Product Grid */
+  .product-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; 
+    margin-bottom: 50px;
+  }
+  
+  .product-card { 
+    background: white; 
+    border-radius: var(--border-radius); 
+    overflow: hidden; 
+    position: relative; 
+    box-shadow: var(--shadow); 
+    transition: var(--transition);
+    border: 1px solid #f0f0f0;
+  }
+  
+  .product-card:hover { 
+    transform: translateY(-8px); 
+    box-shadow: var(--shadow-hover);
+  }
+  
+  .product-image-container {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+  }
+  
+  .product-card img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: transform 0.5s ease;
+  }
+  
+  .product-card:hover img { 
+    transform: scale(1.1); 
+  }
+  
+  .product-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--secondary-color);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  .product-info { 
+    padding: 25px; 
+  }
+  
+  .product-info h3 { 
+    font-size: 1.3em; 
+    margin-bottom: 10px; 
+    color: var(--text-dark);
+    font-weight: 600;
+  }
+  
+  .product-info p { 
+    font-size: 0.95em; 
+    margin-bottom: 15px; 
+    color: var(--text-light);
+    line-height: 1.5;
+  }
+  
+  .price-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .price { 
+    font-weight: 700; 
+    color: var(--secondary-color); 
+    font-size: 1.4em;
+  }
+  
+  .original-price {
+    text-decoration: line-through;
+    color: var(--text-light);
+    font-size: 1em;
+    margin-left: 10px;
+  }
+  
+  .product-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .add-to-cart { 
+    flex: 1;
+    padding: 12px 20px; 
+    background: var(--secondary-color); 
+    border: none; 
+    color: white; 
+    font-weight: 600; 
+    border-radius: 25px; 
+    cursor: pointer; 
+    transition: var(--transition);
+    font-size: 14px;
+  }
+  
+  .add-to-cart:hover { 
+    background: #d35400;
+    transform: translateY(-1px);
+  }
+  
+  .quick-view {
+    padding: 12px 15px;
+    background: transparent;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  .quick-view:hover {
+    background: var(--secondary-color);
+    color: white;
+  }
+  
+  /* Modal Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+  }
+  
+  .modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--text-light);
+    z-index: 2001;
+  }
+  
+  .close:hover {
+    color: var(--secondary-color);
+  }
+  
+  /* Contact Section */
+  #contact { 
+    background: white; 
+    padding: 60px 40px; 
+    border-radius: var(--border-radius); 
+    margin-top: 50px; 
+    box-shadow: var(--shadow);
+  }
+  
+  #contact h2 { 
+    text-align: center; 
+    margin-bottom: 30px; 
+    font-size: 2.5em; 
+    color: var(--text-dark);
+    font-family: 'Playfair Display', serif;
+  }
+  
+  #contact form { 
+    max-width: 600px; 
+    margin: 0 auto; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+  }
+  
+  #contact input, #contact textarea { 
+    padding: 15px 20px; 
+    border-radius: 10px; 
+    border: 2px solid #e0e0e0; 
+    font-size: 16px; 
+    transition: var(--transition);
+    background: #f8f9fa;
+  }
+  
+  #contact input:focus, #contact textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+  }
+  
+  #contact button { 
+    padding: 15px 30px; 
+    background: var(--secondary-color); 
+    border: none; 
+    color: white; 
+    font-weight: 600; 
+    border-radius: 30px; 
+    cursor: pointer; 
+    transition: var(--transition); 
+    font-size: 16px;
+  }
+  
+  #contact button:hover { 
+    background: #d35400;
+    transform: translateY(-2px);
+  }
+  
+  /* Footer */
+  footer { 
+    background: var(--primary-color); 
+    color: white; 
+    padding: 40px 20px; 
+    margin-top: 60px; 
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .footer-section h3 {
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+  }
+  
+  .footer-section p, .footer-section a {
+    margin-bottom: 10px;
+    opacity: 0.9;
+  }
+  
+  .footer-section a:hover {
+    color: var(--secondary-color);
+  }
+  
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .social-links a {
+    width: 40px;
+    height: 40px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+  }
+  
+  .social-links a:hover {
+    background: #d35400;
+    transform: translateY(-2px);
+  }
+  
+  /* Loading Animation */
+  .loading {
+    display: none;
+    text-align: center;
+    padding: 40px;
+  }
+  
+  .spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--secondary-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    header h1 { font-size: 2.5em; }
+    .hero h2 { font-size: 2em; }
+    .hero { padding: 60px 20px; }
+    .product-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .product-image-container { height: 200px; }
+    nav { gap: 15px; padding: 10px 0; }
+    nav a { padding: 8px 15px; font-size: 14px; }
+    .modal-content { width: 95%; margin: 10% auto; }
+    .footer-content { grid-template-columns: 1fr; gap: 20px; }
+  }
+  
+  @media (max-width: 480px) {
+    header h1 { font-size: 2em; }
+    .hero h2 { font-size: 1.5em; }
+    .product-grid { grid-template-columns: 1fr; }
+    .product-image-container { height: 180px; }
+    .search-section { padding: 20px; }
+    #contact { padding: 40px 20px; }
+    .categories button { padding: 10px 15px; margin: 3px; }
+  }
+  
+  /* Animation Classes */
+  .fade-in {
+    animation: fadeIn 0.6s ease-in;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Stone Products</h1>
-  <p>חנות מוצרים מאבן ברמה גבוהה לבית שלך</p>
+  <h1>GiftCraft</h1>
+  <p>מתנות איכותיות ומעוצבות לכל אירוע - חנות המתנות המובילה בישראל</p>
 </header>
 
 <nav>
-  <a href="#">בית</a>
-  <a href="#">מוצרים</a>
-  <a href="#">צור קשר</a>
+  <a href="#products">מוצרים</a>
+  <a href="#about">אודות</a>
+  <a href="#contact">צור קשר</a>
+  <a href="#cart" class="cart-icon">
+    <i class="fas fa-shopping-cart"></i>
+    <span class="cart-count" id="cartCount">0</span>
+  </a>
 </nav>
 
 <div class="hero">
-  <h2>ברוכים הבאים ל-Stone Products!</h2>
-  <p>מוצרים איכותיים ומרהיבים לבית ולמשרד</p>
+  <h2>ברוכים הבאים ל-GiftCraft!</h2>
+  <p>מתנות איכותיות ומעוצבות שיגרמו לכם להתרגש מחדש</p>
+  <a href="#products" class="cta-button">גלה את הקולקציה שלנו</a>
 </div>
 
-<div class="container">
+<div class="container" id="products">
 
-  <!-- Search Bar -->
-  <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="חפש מוצר...">
-  </div>
+  <!-- Search and Filter Section -->
+  <div class="search-section">
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="חפש מתנה מושלמת...">
+    </div>
 
-  <!-- Category Buttons -->
-  <div class="categories">
-    <button class="category-btn active" data-category="all">הכל</button>
-    <button class="category-btn" data-category="tables">שולחנות</button>
-    <button class="category-btn" data-category="vases">אגרטלים</button>
-    <button class="category-btn" data-category="coasters">תחתיות</button>
+    <div class="categories">
+      <button class="category-btn active" data-category="all">הכל</button>
+      <button class="category-btn" data-category="home">לבית</button>
+      <button class="category-btn" data-category="office">למשרד</button>
+      <button class="category-btn" data-category="kitchen">למטבח</button>
+      <button class="category-btn" data-category="decor">קישוטים</button>
+      <button class="category-btn" data-category="personal">אישי</button>
+    </div>
   </div>
 
   <!-- Product Grid -->
   <div class="product-grid" id="productGrid">
 
-    <!-- Product 1 (image 1.jpg) -->
-    <div class="product-card" data-category="tables">
-      <img src="1.jpeg" alt="שולחן גרניט">
+    <!-- Home Products -->
+    <div class="product-card" data-category="home">
+      <div class="product-image-container">
+        <img src="1.jpeg" alt="שולחן גרניט מלוטש" onerror="this.src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
+        <div class="product-badge">מומלץ</div>
+      </div>
       <div class="product-info">
-        <h2>שולחן גרניט</h2>
-        <p>שולחן גרניט מלוטש ויפהפה, מושלם לסלון.</p>
-        <p class="price">₪120</p>
-        <button>הוסף לעגלה</button>
+        <h3>שולחן גרניט מלוטש</h3>
+        <p>שולחן גרניט מלוטש ויפהפה, מושלם לסלון. עמיד וקל לניקוי.</p>
+        <div class="price-container">
+          <span class="price">₪120</span>
+          <span class="original-price">₪150</span>
+        </div>
+        <div class="product-actions">
+          <button class="add-to-cart" onclick="addToCart('שולחן גרניט מלוטש', 120, '1.jpeg')">הוסף לעגלה</button>
+          <button class="quick-view" onclick="openModal('שולחן גרניט מלוטש', 120, '1.jpeg', 'שולחן גרניט מלוטש ויפהפה, מושלם לסלון. עמיד וקל לניקוי. מתאים לכל סוג של ריהוט מודרני.')">צפה מהיר</button>
+        </div>
       </div>
     </div>
 
-    <!-- Product 2 (image 2.jpg) -->
-    <div class="product-card" data-category="vases">
-      <img src="2.jpeg" alt="אגרטל מרבל">
+    <div class="product-card" data-category="decor">
+      <div class="product-image-container">
+        <img src="2.jpeg" alt="אגרטל שיש אלגנטי" onerror="this.src='https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
+        <div class="product-badge">חדש</div>
+      </div>
       <div class="product-info">
-        <h2>אגרטל מרבל</h2>
-        <p>אגרטל אלגנטי עשוי שיש, אידיאלי לקישוט הבית.</p>
-        <p class="price">₪45</p>
-        <button>הוסף לעגלה</button>
+        <h3>אגרטל שיש אלגנטי</h3>
+        <p>אגרטל אלגנטי עשוי שיש, אידיאלי לקישוט הבית והמשרד.</p>
+        <div class="price-container">
+          <span class="price">₪45</span>
+        </div>
+        <div class="product-actions">
+          <button class="add-to-cart" onclick="addToCart('אגרטל שיש אלגנטי', 45, '2.jpeg')">הוסף לעגלה</button>
+          <button class="quick-view" onclick="openModal('אגרטל שיש אלגנטי', 45, '2.jpeg', 'אגרטל אלגנטי עשוי שיש, אידיאלי לקישוט הבית והמשרד. מתאים לפרחים או כקישוט עצמאי.')">צפה מהיר</button>
+        </div>
       </div>
     </div>
 
-    <!-- Product 3 (placeholder for test) -->
-    <div class="product-card" data-category="coasters">
-      <img src="https://via.placeholder.com/400x300" alt="סט תחתיות מאבן">
+    <div class="product-card" data-category="kitchen">
+      <div class="product-image-container">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="סט תחתיות מאבן טבעית">
+      </div>
       <div class="product-info">
-        <h2>סט תחתיות מאבן</h2>
-        <p>סט של 4 תחתיות טבעיות, מגן על השולחן שלך.</p>
-        <p class="price">₪25</p>
-        <button>הוסף לעגלה</button>
+        <h3>סט תחתיות מאבן טבעית</h3>
+        <p>סט של 4 תחתיות טבעיות, מגן על השולחן שלך ומעניק מראה אלגנטי.</p>
+        <div class="price-container">
+          <span class="price">₪25</span>
+        </div>
+        <div class="product-actions">
+          <button class="add-to-cart" onclick="addToCart('סט תחתיות מאבן טבעית', 25, 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')">הוסף לעגלה</button>
+          <button class="quick-view" onclick="openModal('סט תחתיות מאבן טבעית', 25, 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'סט של 4 תחתיות טבעיות, מגן על השולחן שלך ומעניק מראה אלגנטי. כל תחתית עשויה מאבן טבעית ייחודית.')">צפה מהיר</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="office">
+      <div class="product-image-container">
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="שולחן עבודה מודרני">
+        <div class="product-badge">פופולרי</div>
+      </div>
+      <div class="product-info">
+        <h3>שולחן עבודה מודרני</h3>
+        <p>שולחן עבודה מודרני ואיכותי, מושלם למשרד או לבית.</p>
+        <div class="price-container">
+          <span class="price">₪150</span>
+          <span class="original-price">₪200</span>
+        </div>
+        <div class="product-actions">
+          <button class="add-to-cart" onclick="addToCart('שולחן עבודה מודרני', 150, 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')">הוסף לעגלה</button>
+          <button class="quick-view" onclick="openModal('שולחן עבודה מודרני', 150, 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'שולחן עבודה מודרני ואיכותי, מושלם למשרד או לבית. עיצוב נקי ומקצועי.')">צפה מהיר</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="decor">
+      <div class="product-image-container">
+        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="אגרטל דקורטיבי גדול">
+      </div>
+      <div class="product-info">
+        <h3>אגרטל דקורטיבי גדול</h3>
+        <p>אגרטל מעוצב לבית, מושלם כקישוט מרכזי או להצגת פרחים.</p>
+        <div class="price-container">
+          <span class="price">₪60</span>
+        </div>
+        <div class="product-actions">
+          <button class="add-to-cart" onclick="addToCart('אגרטל דקורטיבי גדול', 60, 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')">הוסף לעגלה</button>
+          <button class="quick-view" onclick="openModal('אגרטל דקורטיבי גדול', 60, 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'אגרטל מעוצב לבית, מושלם כקישוט מרכזי או להצגת פרחים. עיצוב מודרני ואלגנטי.')">צפה מהיר</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="kitchen">
+      <div class="product-image-container">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="תחתיות שיש מלוטש">
+      </div>
+      <div class="product-info">
+        <h3>תחתיות שיש מלוטש</h3>
+        <p>תחתיות טבעיות למניעת שריטות, עמידות וקלות לניקוי.</p>
+        <div class="price-container">
+          <span class="price">₪30</span>
+        </div>
+        <div class="product-actions">
+          <button class="add-to-cart" onclick="addToCart('תחתיות שיש מלוטש', 30, 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')">הוסף לעגלה</button>
+          <button class="quick-view" onclick="openModal('תחתיות שיש מלוטש', 30, 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'תחתיות טבעיות למניעת שריטות, עמידות וקלות לניקוי. סט של 4 יחידות.')">צפה מהיר</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="home">
+      <div class="product-image-container">
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="שולחן סלון מעוצב">
+      </div>
+      <div class="product-info">
+        <h3>שולחן סלון מעוצב</h3>
+        <p>שולחן מעוצב לבית, מושלם לסלון המודרני שלך.</p>
+        <div class="price-container">
+          <span class="price">₪180</span>
+        </div>
+        <div class="product-actions">
+          <button class="add-to-cart" onclick="addToCart('שולחן סלון מעוצב', 180, 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')">הוסף לעגלה</button>
+          <button class="quick-view" onclick="openModal('שולחן סלון מעוצב', 180, 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'שולחן מעוצב לבית, מושלם לסלון המודרני שלך. עיצוב נקי ואלגנטי.')">צפה מהיר</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="decor">
+      <div class="product-image-container">
+        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="אגרטל צבעוני מעוצב">
+      </div>
+      <div class="product-info">
+        <h3>אגרטל צבעוני מעוצב</h3>
+        <p>להכניס צבע וחיים לבית שלך עם אגרטל מעוצב וייחודי.</p>
+        <div class="price-container">
+          <span class="price">₪55</span>
+        </div>
+        <div class="product-actions">
+          <button class="add-to-cart" onclick="addToCart('אגרטל צבעוני מעוצב', 55, 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')">הוסף לעגלה</button>
+          <button class="quick-view" onclick="openModal('אגרטל צבעוני מעוצב', 55, 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'להכניס צבע וחיים לבית שלך עם אגרטל מעוצב וייחודי. מושלם כקישוט או להצגת פרחים.')">צפה מהיר</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="kitchen">
+      <div class="product-image-container">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="תחתיות מעוצבות">
+      </div>
+      <div class="product-info">
+        <h3>תחתיות מעוצבות</h3>
+        <p>סט של 6 תחתיות מיוחדות, מושלם למטבח המודרני.</p>
+        <div class="price-container">
+          <span class="price">₪35</span>
+        </div>
+        <div class="product-actions">
+          <button class="add-to-cart" onclick="addToCart('תחתיות מעוצבות', 35, 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')">הוסף לעגלה</button>
+          <button class="quick-view" onclick="openModal('תחתיות מעוצבות', 35, 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'סט של 6 תחתיות מיוחדות, מושלם למטבח המודרני. עיצוב ייחודי ואיכותי.')">צפה מהיר</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="home">
+      <div class="product-image-container">
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="שולחן אוכל רחב">
+      </div>
+      <div class="product-info">
+        <h3>שולחן אוכל רחב</h3>
+        <p>שולחן רחב לאירוח, מושלם לאירוח משפחתי וחברי.</p>
+        <div class="price-container">
+          <span class="price">₪250</span>
+          <span class="original-price">₪300</span>
+        </div>
+        <div class="product-actions">
+          <button class="add-to-cart" onclick="addToCart('שולחן אוכל רחב', 250, 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')">הוסף לעגלה</button>
+          <button class="quick-view" onclick="openModal('שולחן אוכל רחב', 250, 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'שולחן רחב לאירוח, מושלם לאירוח משפחתי וחברי. עמיד ואיכותי.')">צפה מהיר</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="personal">
+      <div class="product-image-container">
+        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="אגרטל קטן לשולחן">
+      </div>
+      <div class="product-info">
+        <h3>אגרטל קטן לשולחן</h3>
+        <p>אגרטל מעוצב לשולחן העבודה או השולחן בסלון.</p>
+        <div class="price-container">
+          <span class="price">₪40</span>
+        </div>
+        <div class="product-actions">
+          <button class="add-to-cart" onclick="addToCart('אגרטל קטן לשולחן', 40, 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')">הוסף לעגלה</button>
+          <button class="quick-view" onclick="openModal('אגרטל קטן לשולחן', 40, 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'אגרטל מעוצב לשולחן העבודה או השולחן בסלון. קומפקטי ואלגנטי.')">צפה מהיר</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="office">
+      <div class="product-image-container">
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="שולחן צד מודרני">
+      </div>
+      <div class="product-info">
+        <h3>שולחן צד מודרני</h3>
+        <p>שולחן קטן לצד הספה, מושלם למגזינים או לשתייה.</p>
+        <div class="price-container">
+          <span class="price">₪90</span>
+        </div>
+        <div class="product-actions">
+          <button class="add-to-cart" onclick="addToCart('שולחן צד מודרני', 90, 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')">הוסף לעגלה</button>
+          <button class="quick-view" onclick="openModal('שולחן צד מודרני', 90, 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'שולחן קטן לצד הספה, מושלם למגזינים או לשתייה. עיצוב מינימליסטי.')">צפה מהיר</button>
+        </div>
       </div>
     </div>
 
   </div>
 </div>
 
+<!-- About Section -->
+<div id="about" class="container">
+  <div style="background: white; padding: 60px 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center;">
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5em; margin-bottom: 30px; color: var(--text-dark);">אודות GiftCraft</h2>
+    <p style="font-size: 1.2em; line-height: 1.8; color: var(--text-light); max-width: 800px; margin: 0 auto;">
+      ב-GiftCraft אנחנו מאמינים שמתנה טובה יכולה להביא אושר אמיתי. אנחנו מתמחים בבחירת מוצרים איכותיים ומעוצבים שיעניקו שמחה לכל מי שמקבל אותם. 
+      הקולקציה שלנו כוללת פריטים ייחודיים לבית, למשרד ולכל אירוע מיוחד. כל מוצר נבחר בקפידה כדי להבטיח איכות מעולה ומחיר הוגן.
+    </p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 40px;">
+      <div>
+        <i class="fas fa-shipping-fast" style="font-size: 3em; color: var(--secondary-color); margin-bottom: 15px;"></i>
+        <h3>משלוח מהיר</h3>
+        <p>משלוח עד הבית תוך 2-3 ימי עבודה</p>
+      </div>
+      <div>
+        <i class="fas fa-award" style="font-size: 3em; color: var(--secondary-color); margin-bottom: 15px;"></i>
+        <h3>איכות מובטחת</h3>
+        <p>כל המוצרים שלנו עוברים בדיקת איכות קפדנית</p>
+      </div>
+      <div>
+        <i class="fas fa-heart" style="font-size: 3em; color: var(--secondary-color); margin-bottom: 15px;"></i>
+        <h3>אחריות מלאה</h3>
+        <p>אחריות של שנה על כל המוצרים</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contact Section -->
+<div id="contact" class="container">
+  <h2>צור קשר</h2>
+  <form id="contactForm">
+    <input type="text" name="name" placeholder="שם מלא" required>
+    <input type="email" name="email" placeholder="כתובת מייל" required>
+    <input type="tel" name="phone" placeholder="מספר טלפון" required>
+    <textarea name="message" rows="5" placeholder="כתבו לנו הודעה..." required></textarea>
+    <button type="submit">שלח הודעה</button>
+  </form>
+</div>
+
+<!-- Product Modal -->
+<div id="productModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- Cart Modal -->
+<div id="cartModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2 style="text-align: center; margin-bottom: 30px;">עגלת הקניות שלי</h2>
+    <div id="cartContent"></div>
+    <div style="text-align: center; margin-top: 30px;">
+      <button onclick="checkout()" style="background: var(--secondary-color); color: white; border: none; padding: 15px 30px; border-radius: 30px; font-weight: 600; cursor: pointer; font-size: 16px;">המשך לתשלום</button>
+    </div>
+  </div>
+</div>
+
 <footer>
-  <p>&copy; 2025 Stone Products. כל הזכויות שמורות | צור קשר: info@stoneproducts.co.il</p>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>GiftCraft</h3>
+      <p>חנות המתנות המובילה בישראל. מתנות איכותיות ומעוצבות לכל אירוע.</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+    <div class="footer-section">
+      <h3>קישורים מהירים</h3>
+      <a href="#products">מוצרים</a>
+      <a href="#about">אודות</a>
+      <a href="#contact">צור קשר</a>
+      <a href="#">מדיניות החזרות</a>
+    </div>
+    <div class="footer-section">
+      <h3>שירות לקוחות</h3>
+      <p><i class="fas fa-phone"></i> 03-1234567</p>
+      <p><i class="fas fa-envelope"></i> info@giftcraft.co.il</p>
+      <p><i class="fas fa-clock"></i> א׳-ה׳ 9:00-18:00</p>
+    </div>
+  </div>
+  <p style="text-align: center; margin-top: 30px; opacity: 0.7;">&copy; 2025 GiftCraft. כל הזכויות שמורות</p>
 </footer>
 
 <script>
-  // Search
-  const searchInput = document.getElementById('searchInput');
-  const products = document.querySelectorAll('.product-card');
-  searchInput.addEventListener('keyup', () => {
-    const filter = searchInput.value.toLowerCase();
-    products.forEach(product => {
-      const name = product.querySelector('h2').textContent.toLowerCase();
-      product.style.display = name.includes(filter) ? '' : 'none';
-    });
+  // Global Variables
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let currentFilter = 'all';
+
+  // Initialize the page
+  document.addEventListener('DOMContentLoaded', function() {
+    updateCartCount();
+    initializeEventListeners();
+    animateOnScroll();
   });
 
-  // Category Filter
-  const categoryBtns = document.querySelectorAll('.category-btn');
-  categoryBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      categoryBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const cat = btn.getAttribute('data-category');
-      products.forEach(p => {
-        const prodCat = p.getAttribute('data-category');
-        p.style.display = (cat === 'all' || prodCat === cat) ? '' : 'none';
+  // Initialize Event Listeners
+  function initializeEventListeners() {
+    // Search functionality
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('keyup', handleSearch);
+
+    // Category filter
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    categoryBtns.forEach(btn => {
+      btn.addEventListener('click', handleCategoryFilter);
+    });
+
+    // Modal close functionality
+    const modals = document.querySelectorAll('.modal');
+    const closeButtons = document.querySelectorAll('.close');
+    
+    closeButtons.forEach(btn => {
+      btn.addEventListener('click', closeModal);
+    });
+
+    modals.forEach(modal => {
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          closeModal();
+        }
       });
+    });
+
+    // Contact form
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', handleContactForm);
+
+    // Cart icon click
+    const cartIcon = document.querySelector('.cart-icon');
+    cartIcon.addEventListener('click', openCartModal);
+  }
+
+  // Search functionality
+  function handleSearch() {
+    const filter = searchInput.value.toLowerCase();
+    const products = document.querySelectorAll('.product-card');
+    
+    products.forEach(product => {
+      const name = product.querySelector('h3').textContent.toLowerCase();
+      const description = product.querySelector('p').textContent.toLowerCase();
+      const category = product.getAttribute('data-category');
+      
+      const matchesSearch = name.includes(filter) || description.includes(filter);
+      const matchesCategory = currentFilter === 'all' || category === currentFilter;
+      
+      if (matchesSearch && matchesCategory) {
+        product.style.display = '';
+        product.classList.add('fade-in');
+      } else {
+        product.style.display = 'none';
+      }
+    });
+  }
+
+  // Category filter
+  function handleCategoryFilter(e) {
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    categoryBtns.forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    
+    currentFilter = e.target.getAttribute('data-category');
+    const products = document.querySelectorAll('.product-card');
+    
+    products.forEach(product => {
+      const category = product.getAttribute('data-category');
+      const searchFilter = document.getElementById('searchInput').value.toLowerCase();
+      const name = product.querySelector('h3').textContent.toLowerCase();
+      const description = product.querySelector('p').textContent.toLowerCase();
+      
+      const matchesCategory = currentFilter === 'all' || category === currentFilter;
+      const matchesSearch = name.includes(searchFilter) || description.includes(searchFilter);
+      
+      if (matchesCategory && matchesSearch) {
+        product.style.display = '';
+        product.classList.add('slide-up');
+      } else {
+        product.style.display = 'none';
+      }
+    });
+  }
+
+  // Add to cart functionality
+  function addToCart(name, price, image) {
+    const existingItem = cart.find(item => item.name === name);
+    
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      cart.push({
+        name: name,
+        price: price,
+        image: image,
+        quantity: 1
+      });
+    }
+    
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    showNotification('המוצר נוסף לעגלה בהצלחה!');
+  }
+
+  // Update cart count
+  function updateCartCount() {
+    const cartCount = document.getElementById('cartCount');
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    cartCount.textContent = totalItems;
+  }
+
+  // Open product modal
+  function openModal(name, price, image, description) {
+    const modal = document.getElementById('productModal');
+    const modalContent = document.getElementById('modalContent');
+    
+    modalContent.innerHTML = `
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 40px;">
+        <div>
+          <img src="${image}" alt="${name}" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+        </div>
+        <div>
+          <h2 style="font-size: 2em; margin-bottom: 20px; color: var(--text-dark);">${name}</h2>
+          <p style="font-size: 1.2em; line-height: 1.8; color: var(--text-light); margin-bottom: 30px;">${description}</p>
+          <div style="margin-bottom: 30px;">
+            <span style="font-size: 2.5em; font-weight: 700; color: var(--secondary-color);">₪${price}</span>
+          </div>
+          <button onclick="addToCart('${name}', ${price}, '${image}'); closeModal();" 
+                  style="background: var(--secondary-color); color: white; border: none; padding: 15px 30px; border-radius: 30px; font-weight: 600; cursor: pointer; font-size: 16px; margin-right: 15px;">
+            הוסף לעגלה
+          </button>
+          <button onclick="closeModal()" 
+                  style="background: transparent; color: var(--secondary-color); border: 2px solid var(--secondary-color); padding: 13px 30px; border-radius: 30px; font-weight: 600; cursor: pointer; font-size: 16px;">
+            סגור
+          </button>
+        </div>
+      </div>
+    `;
+    
+    modal.style.display = 'block';
+  }
+
+  // Open cart modal
+  function openCartModal() {
+    const modal = document.getElementById('cartModal');
+    const cartContent = document.getElementById('cartContent');
+    
+    if (cart.length === 0) {
+      cartContent.innerHTML = `
+        <div style="text-align: center; padding: 40px;">
+          <i class="fas fa-shopping-cart" style="font-size: 4em; color: var(--text-light); margin-bottom: 20px;"></i>
+          <p style="font-size: 1.2em; color: var(--text-light);">העגלה שלך ריקה</p>
+          <p style="color: var(--text-light);">הוסף מוצרים לעגלה כדי להתחיל לקנות</p>
+        </div>
+      `;
+    } else {
+      let total = 0;
+      cartContent.innerHTML = cart.map(item => {
+        total += item.price * item.quantity;
+        return `
+          <div style="display: flex; align-items: center; padding: 20px; border-bottom: 1px solid #eee;">
+            <img src="${item.image}" alt="${item.name}" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px; margin-left: 15px;">
+            <div style="flex: 1;">
+              <h4 style="margin: 0 0 5px 0;">${item.name}</h4>
+              <p style="margin: 0; color: var(--text-light);">₪${item.price}</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <button onclick="updateQuantity('${item.name}', -1)" style="background: var(--secondary-color); color: white; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer;">-</button>
+              <span style="font-weight: 600; min-width: 30px; text-align: center;">${item.quantity}</span>
+              <button onclick="updateQuantity('${item.name}', 1)" style="background: var(--secondary-color); color: white; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer;">+</button>
+            </div>
+            <div style="font-weight: 600; margin-right: 15px; min-width: 80px; text-align: left;">
+              ₪${item.price * item.quantity}
+            </div>
+            <button onclick="removeFromCart('${item.name}')" style="background: #e74c3c; color: white; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer;">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        `;
+      }).join('') + `
+        <div style="padding: 20px; border-top: 2px solid var(--secondary-color);">
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 1.3em; font-weight: 700;">
+            <span>סה"כ:</span>
+            <span style="color: var(--secondary-color);">₪${total}</span>
+          </div>
+        </div>
+      `;
+    }
+    
+    modal.style.display = 'block';
+  }
+
+  // Update quantity
+  function updateQuantity(name, change) {
+    const item = cart.find(item => item.name === name);
+    if (item) {
+      item.quantity += change;
+      if (item.quantity <= 0) {
+        removeFromCart(name);
+        return;
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartCount();
+      openCartModal(); // Refresh cart modal
+    }
+  }
+
+  // Remove from cart
+  function removeFromCart(name) {
+    cart = cart.filter(item => item.name !== name);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    showNotification('המוצר הוסר מהעגלה');
+    openCartModal(); // Refresh cart modal
+  }
+
+  // Checkout functionality
+  function checkout() {
+    if (cart.length === 0) {
+      showNotification('העגלה ריקה', 'error');
+      return;
+    }
+    
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    alert(`תודה על הרכישה! סך הכל: ₪${total}\n\nהזמנתך תועבר לטיפול ונחזור אליך בהקדם.`);
+    
+    // Clear cart
+    cart = [];
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    closeModal();
+  }
+
+  // Close modal
+  function closeModal() {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+      modal.style.display = 'none';
+    });
+  }
+
+  // Contact form handler
+  function handleContactForm(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    
+    // Simulate form submission
+    showNotification('תודה על פנייתך! נחזור אליך בהקדם.', 'success');
+    e.target.reset();
+  }
+
+  // Show notification
+  function showNotification(message, type = 'success') {
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: ${type === 'error' ? '#e74c3c' : 'var(--secondary-color)'};
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      z-index: 3000;
+      font-weight: 500;
+      transform: translateX(400px);
+      transition: transform 0.3s ease;
+    `;
+    notification.textContent = message;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+      notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    setTimeout(() => {
+      notification.style.transform = 'translateX(400px)';
+      setTimeout(() => {
+        document.body.removeChild(notification);
+      }, 300);
+    }, 3000);
+  }
+
+  // Animate on scroll
+  function animateOnScroll() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
+      });
+    });
+
+    const elements = document.querySelectorAll('.product-card, .footer-section');
+    elements.forEach(el => observer.observe(el));
+  }
+
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
     });
   });
 </script>
