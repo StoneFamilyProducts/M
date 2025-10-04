@@ -235,9 +235,9 @@
   /* Product Grid */
   .product-grid { 
     display: grid; 
-    /* Show three items per row on larger screens for denser browsing */
-    grid-template-columns: repeat(3, minmax(240px, 1fr));
-    gap: 24px; 
+    /* Mobile-first: two items per row on small screens (phones) */
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+    gap: 16px; 
     margin-bottom: 40px;
   }
   
@@ -551,8 +551,14 @@
   }
 
   /* Medium screens - two columns */
-  @media (max-width: 1024px) and (min-width: 769px) {
-    .product-grid { grid-template-columns: repeat(2, minmax(220px, 1fr)); gap: 20px; }
+  /* Medium screens - three columns */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .product-grid { grid-template-columns: repeat(3, minmax(200px, 1fr)); gap: 20px; }
+  }
+
+  /* Large screens - four columns */
+  @media (min-width: 1025px) {
+    .product-grid { grid-template-columns: repeat(4, minmax(200px, 1fr)); gap: 24px; }
   }
   
   @media (max-width: 480px) {
