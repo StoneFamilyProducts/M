@@ -123,8 +123,8 @@
   
   /* Hero Section */
   .hero { 
-    background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(52, 73, 94, 0.8)), 
-                url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center/cover; 
+  background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(52, 73, 94, 0.8)), 
+        url('printer.jpeg') no-repeat center/cover; 
     text-align: center; 
     padding: 150px 20px 100px 20px; 
     color: white;
@@ -434,6 +434,9 @@
   .product-actions {
     display: flex;
     gap: 10px;
+    margin-top: 10px; /* more space between product info and action buttons */
+    flex-wrap: wrap; /* allow buttons to wrap to next line */
+    align-items: center;
   }
   
   .quick-view {
@@ -740,7 +743,7 @@
         <h3>מדבקות צורניות</h3>
         <p> מדבקות צורניות מעוצבות, מושלמות לקישוט כל חלל. מינימום הזמנה 50 יחידות</p>
         <div class="price-container">
-          <span class="price">₪15-100</span>
+          <span class="price">החל מ-₪15</span>
         </div>
         <div class="product-actions">
           <button class="quick-view">פרטים</button>
@@ -775,7 +778,7 @@
         <h3>הזמנות/כרטיסים</h3>
         <p> נייר כרומו 300 גרם. מינימום הזמנה 50 יחידות</p>
         <div class="price-container">
-          <span class="price">₪15-100</span>
+          <span class="price">החל מ-₪15</span>
         </div>
         <div class="product-actions">
           <button class="quick-view">פרטים</button>
@@ -792,7 +795,7 @@
         <h3>מגנטים</h3>
         <p>מגנטים מעוצבים, מושלמים לקישוט כל חלל. </p>
         <div class="price-container">
-          <span class="price">₪15-100</span>
+          <span class="price">החל מ-₪15</span>
         </div>
         <div class="product-actions">
           <button class="quick-view">פרטים</button>
@@ -809,7 +812,7 @@
         <h3>שילוט PVC</h3>
         <p>שילוט PVC איכותי, עמיד במים ובתנאי חוץ. </p>
         <div class="price-container">
-          <span class="price">₪15-100</span>
+          <span class="price">החל מ-₪15</span>
         </div>
         <div class="product-actions">
           <button class="quick-view">פרטים</button>
@@ -1141,14 +1144,14 @@
           inline.remove();
         }
 
-        // Add per-card WhatsApp button (placed right before the quick button)
+        // Add per-card WhatsApp button (placed after the quick button so it wraps to the next line)
         let waBtn = actions.querySelector('.whatsapp-card');
         if (!waBtn) {
           waBtn = document.createElement('button');
           waBtn.type = 'button';
           waBtn.className = 'whatsapp-card';
           waBtn.innerHTML = '<i class="fab fa-whatsapp"></i><span>הזמן</span>';
-          actions.insertBefore(waBtn, quick);
+          actions.appendChild(waBtn);
         }
       });
     }
@@ -1264,7 +1267,7 @@
             <div style="display:flex; gap:12px; flex-wrap:wrap;">
               <button class="btn-contact-modal" 
                       style="background: #25D366; color: white; border: none; padding: 12px 22px; border-radius: 30px; font-weight: 600; cursor: pointer; font-size: 16px;">
-                צור קשר
+               הזמן
               </button>
               <button class="btn-close" 
                       style="background: var(--secondary-color); color: white; border: none; padding: 12px 22px; border-radius: 30px; font-weight: 600; cursor: pointer; font-size: 16px;">
