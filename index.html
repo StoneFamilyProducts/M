@@ -722,9 +722,9 @@
   <img src="1.jpeg" alt="שולחן גרניט מלוטש">
         <div class="category-label">הדפסות</div>
       </div>
-      <div class="product-info">
-        <h3>מחזיק מפתחות מעוצב אישית</h3>
-        <p>מחזיק מפתחות מעוצב אישית, מתנה מושלמת לכל אוהבי האומנות.</p>
+    <div class="product-info">
+      <h3>מחזיק מפתחות מעוצב אישית</h3>
+      <p>מחזיק מפתחות מעוצב אישית.<br>יחידה 1 - 15₪ .<br>10 יחידות - 100₪ <br>30 יחידות - 250₪ </p>
         <div class="price-container">
           <span class="price">₪15</span>
         </div>
@@ -741,9 +741,8 @@
       </div>
       <div class="product-info">
         <h3>מדבקות צורניות</h3>
-        <p> מדבקות צורניות מעוצבות, מושלמות לקישוט כל חלל. מינימום הזמנה 50 יחידות</p>
+        <p> מדבקות צורניות מעוצבות, מושלמות לקישוט כל חלל. מינימום הזמנה לפי הגודל<br>3X3 ס"מ - כמות: 50 - 80₪.<br>5X5 ס"מ - כמות: 20 - 80₪.<br>9X9 ס"מ - כמות: 6 - 80₪.</p>
         <div class="price-container">
-          <span class="price">החל מ-₪15</span>
         </div>
         <div class="product-actions">
           <button class="quick-view">פרטים</button>
@@ -776,9 +775,8 @@
       </div>
       <div class="product-info">
         <h3>הזמנות/כרטיסים</h3>
-        <p> נייר כרומו 300 גרם. מינימום הזמנה 50 יחידות</p>
+        <p> נייר כרומו 300 גרם. מינימום הזמנה 50 יחידות<br>כרטיסי ביקור דו צדדי-<br>50 יחידות - 70₪ <br>הזמנות A5- <br>50 יחידות - 80₪<br>100 יחידות - 150₪</p>
         <div class="price-container">
-          <span class="price">החל מ-₪15</span>
         </div>
         <div class="product-actions">
           <button class="quick-view">פרטים</button>
@@ -793,9 +791,8 @@
       </div>
       <div class="product-info">
         <h3>מגנטים</h3>
-        <p>מגנטים מעוצבים, מושלמים לקישוט כל חלל. </p>
+        <p>מגנטים מעוצבים בגודל 10X7 ס"מ<br>30 יחידות - 100₪ <br>60 יחידות - 180₪ </p>
         <div class="price-container">
-          <span class="price">החל מ-₪15</span>
         </div>
         <div class="product-actions">
           <button class="quick-view">פרטים</button>
@@ -810,9 +807,8 @@
       </div>
       <div class="product-info">
         <h3>שילוט PVC</h3>
-        <p>שילוט PVC איכותי, עמיד במים ובתנאי חוץ. </p>
+        <p>שלט PVC בגדלים A4, A3 מעוצב. עמיד במים ובתנאי חוץ.<br>A4 - 40₪<br>10XA4 - 300₪<br>A3 - 70₪<br>10XA3 - 500₪</p>
         <div class="price-container">
-          <span class="price">החל מ-₪15</span>
         </div>
         <div class="product-actions">
           <button class="quick-view">פרטים</button>
@@ -829,7 +825,7 @@
         <h3>נר ריחני קטן</h3>
         <p>נר ריחני מעוצב, מושלם ליצירת אווירה חמימה בבית.</p>
         <div class="price-container">
-          <span class="price">₪25</span>
+          <span class="price">₪15</span>
         </div>
         <div class="product-actions">
           <button class="quick-view">פרטים</button>
@@ -846,7 +842,7 @@
         <h3>נר ריחני בינוני</h3>
         <p>נר ריחני מעוצב, מושלם ליצירת אווירה חמימה בבית.</p>
         <div class="price-container">
-          <span class="price">₪40</span>
+          <span class="price">₪25</span>
         </div>
         <div class="product-actions">
           <button class="quick-view">פרטים</button>
@@ -863,7 +859,7 @@
         <h3>נר ריחני גדול</h3>
         <p>נר ריחני מעוצב, מושלם ליצירת אווירה חמימה בבית.</p>
         <div class="price-container">
-          <span class="price">₪85</span>
+          <span class="price">₪35</span>
         </div>
         <div class="product-actions">
           <button class="quick-view">פרטים</button>
@@ -1291,8 +1287,9 @@
     const nameEl = card.querySelector('.product-info h3');
     const name = nameEl ? nameEl.textContent.trim() : '';
     // description (first paragraph inside product-info)
-    const descEl = card.querySelector('.product-info p');
-    const description = descEl ? descEl.textContent.trim() : '';
+  const descEl = card.querySelector('.product-info p');
+  // read innerHTML so the modal can preserve line breaks and simple formatting
+  const description = descEl ? descEl.innerHTML.trim() : '';
     // price (span.price)
     const priceEl = card.querySelector('.price');
     const price = priceEl ? priceEl.textContent.trim().replace(/[^0-9.,₪]/g, '') : '';
