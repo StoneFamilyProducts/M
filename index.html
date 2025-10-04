@@ -235,9 +235,10 @@
   /* Product Grid */
   .product-grid { 
     display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 30px; 
-    margin-bottom: 50px;
+    /* Show three items per row on larger screens for denser browsing */
+    grid-template-columns: repeat(3, minmax(240px, 1fr));
+    gap: 24px; 
+    margin-bottom: 40px;
   }
   
   .product-card { 
@@ -258,7 +259,7 @@
   .product-image-container {
     position: relative;
     overflow: hidden;
-    height: 250px;
+    height: 220px;
   }
   
   .product-card img { 
@@ -311,17 +312,22 @@
   }
   
   .product-info p { 
-    font-size: 0.95em; 
-    margin-bottom: 15px; 
-    color: var(--text-light);
-    line-height: 1.5;
+    display: none; /* hide descriptions in the card - details live in the modal */
   }
   
   .price-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    margin-bottom: 20px;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  /* compact price inside card */
+  .price { 
+    font-weight: 700; 
+    color: var(--secondary-color); 
+    font-size: 1.1em;
   }
   
   .price { 
@@ -536,18 +542,23 @@
   @media (max-width: 768px) {
     header h1 { font-size: 2.5em; }
     .hero { padding: 60px 20px; }
-    .product-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .product-image-container { height: 200px; }
+  .product-grid { grid-template-columns: 1fr; gap: 18px; }
+    .product-image-container { height: 180px; }
     nav { gap: 15px; padding: 10px 0; }
     nav a { padding: 8px 15px; font-size: 14px; }
     .modal-content { width: 95%; margin: 10% auto; }
     .footer-content { grid-template-columns: 1fr; gap: 20px; }
   }
+
+  /* Medium screens - two columns */
+  @media (max-width: 1024px) and (min-width: 769px) {
+    .product-grid { grid-template-columns: repeat(2, minmax(220px, 1fr)); gap: 20px; }
+  }
   
   @media (max-width: 480px) {
     header h1 { font-size: 2em; }
     .product-grid { grid-template-columns: 1fr; }
-    .product-image-container { height: 180px; }
+    .product-image-container { height: 160px; }
     .search-section { padding: 20px; }
     #contact { padding: 40px 20px; }
     .categories button { padding: 10px 15px; margin: 3px; }
@@ -1075,25 +1086,27 @@
     }
 
     modalContent.innerHTML = `
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 40px;">
-        <div>
-          <img src="${image}" alt="${name}" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-        </div>
-        <div>
-          <h2 style="font-size: 2em; margin-bottom: 20px; color: var(--text-dark);">${name}</h2>
-          <p style="font-size: 1.2em; line-height: 1.8; color: var(--text-light); margin-bottom: 30px;">${description}</p>
-          <div style="margin-bottom: 30px;">
-            <span class="modal-price" style="font-size: 2.5em; font-weight: 700; color: var(--secondary-color);">${priceDisplay}</span>
+      <div style="padding: 24px;">
+        <div style="width:100%; max-width:780px; margin:0 auto;">
+          <div style="margin-bottom:20px;">
+            <img src="${image}" alt="${name}" style="width:100%; height:auto; border-radius:12px; box-shadow:0 8px 40px rgba(0,0,0,0.15); display:block;">
           </div>
-          <div style="display:flex; gap:12px;">
-            <button class="btn-contact-modal" 
-                    style="background: #25D366; color: white; border: none; padding: 12px 22px; border-radius: 30px; font-weight: 600; cursor: pointer; font-size: 16px;">
-             הזמן מוצר
-            </button>
-            <button class="btn-close" 
-                    style="background: var(--secondary-color); color: white; border: none; padding: 12px 22px; border-radius: 30px; font-weight: 600; cursor: pointer; font-size: 16px;">
-              סגור
-            </button>
+          <div style="padding: 10px 4px;">
+            <h2 style="font-size: 2em; margin-bottom: 12px; color: var(--text-dark);">${name}</h2>
+            <p style="font-size: 1.05em; line-height: 1.8; color: var(--text-light); margin-bottom: 20px;">${description}</p>
+            <div style="margin-bottom: 18px;">
+              <span class="modal-price" style="font-size: 2em; font-weight: 700; color: var(--secondary-color);">${priceDisplay}</span>
+            </div>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <button class="btn-contact-modal" 
+                      style="background: #25D366; color: white; border: none; padding: 12px 22px; border-radius: 30px; font-weight: 600; cursor: pointer; font-size: 16px;">
+                צור קשר
+              </button>
+              <button class="btn-close" 
+                      style="background: var(--secondary-color); color: white; border: none; padding: 12px 22px; border-radius: 30px; font-weight: 600; cursor: pointer; font-size: 16px;">
+                סגור
+              </button>
+            </div>
           </div>
         </div>
       </div>
