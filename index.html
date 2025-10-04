@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GiftCraft - מתנות איכותיות ומעוצבות</title>
-<meta name="description" content="חנות המתנות המובילה בישראל - מתנות איכותיות, מעוצבות וייחודיות לכל אירוע. משלוחים מהירים ואחריות מלאה.">
+<title>Stone Products</title>
+<meta name="description" content="חנות מתנות והדפסות.">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 <style>
@@ -101,8 +101,6 @@
     color: var(--secondary-color);
     background: rgba(255,255,255,0.1);
   }
-  
-  /* cart removed */
 
   .details {
     background: var(--secondary-color);
@@ -344,8 +342,6 @@
     gap: 10px;
   }
   
-  /* add-to-cart removed */
-  
   .quick-view {
     padding: 12px 15px;
     background: transparent;
@@ -583,7 +579,6 @@
   <a href="#products">מוצרים</a>
   <a href="#about">אודות</a>
   <a href="#contact">צור קשר</a>
-  <!-- cart removed -->
 </nav>
 
 <div class="hero">
@@ -602,11 +597,9 @@
 
     <div class="categories">
       <button class="category-btn active" data-category="all">הכל</button>
-      <button class="category-btn" data-category="home">מתנות</button>
-      <button class="category-btn" data-category="office">מוצרי תלת מימד</button>
-      <button class="category-btn" data-category="kitchen">נרות</button>
-      <button class="category-btn" data-category="decor">הדפסות</button>
-      <button class="category-btn" data-category="personal">שונות</button>
+      <button class="category-btn" data-category="prints">הדפסות</button>
+      <button class="category-btn" data-category="candles">נרות</button>
+      <button class="category-btn" data-category="3d">מוצרי תלת מימד</button>
     </div>
   </div>
 
@@ -614,9 +607,9 @@
   <div class="product-grid" id="productGrid">
 
     <!-- Home Products -->
-    <div class="product-card" data-category="home">
+    <div class="product-card" data-category="prints">
       <div class="product-image-container">
-        <img src="1.jpeg" alt="שולחן גרניט מלוטש" onerror="this.src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
+  <img src="1.jpeg" alt="שולחן גרניט מלוטש">
         <div class="category-label">הדפסות</div>
       </div>
       <div class="product-info">
@@ -626,14 +619,14 @@
           <span class="price">₪15</span>
         </div>
         <div class="product-actions">
-          <button class="quick-view" onclick="openModal('שולחן גרניט מלוטש', 120, '1.jpeg', 'שולחן גרניט מלוטש ויפהפה, מושלם לסלון. עמיד וקל לניקוי. מתאים לכל סוג של ריהוט מודרני.')">פרטים</button>
+          <button class="quick-view">פרטים</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="decor">
+    <div class="product-card" data-category="prints">
       <div class="product-image-container">
-        <img src="2.jpeg" alt="אגרטל שיש אלגנטי" onerror="this.src='https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
+  <img src="2.jpeg" alt="אגרטל שיש אלגנטי">
         <div class="category-label">הדפסות</div>
       </div>
       <div class="product-info">
@@ -643,12 +636,12 @@
           <span class="price">מחיר לפי גודל וכמות</span>
         </div>
         <div class="product-actions">
-          <button class="quick-view" onclick="openModal('אגרטל שיש אלגנטי', 45, '2.jpeg', 'אגרטל אלגנטי עשוי שיש, אידיאלי לקישוט הבית והמשרד. מתאים לפרחים או כקישוט עצמאי.')">פרטים</button>
+          <button class="quick-view">פרטים</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="kitchen">
+    <div class="product-card" data-category="prints">
       <div class="product-image-container">
         <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="סט תחתיות מאבן טבעית">
         <div class="category-label">הדפסות</div>
@@ -660,12 +653,12 @@
           <span class="price">₪30</span>
         </div>
         <div class="product-actions">
-          <button class="quick-view" onclick="openModal('סט תחתיות מאבן טבעית', 25, 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'סט של 4 תחתיות טבעיות, מגן על השולחן שלך ומעניק מראה אלגנטי. כל תחתית עשויה מאבן טבעית ייחודית.')">פרטים</button>
+          <button class="quick-view">פרטים</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="office">
+    <div class="product-card" data-category="prints">
       <div class="product-image-container">
         <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="שולחן עבודה מודרני">
         <div class="category-label">הדפסות</div>
@@ -678,12 +671,12 @@
           <span class="price">מחיר לפי גודל וכמות</span>
         </div>
         <div class="product-actions">
-          <button class="quick-view" onclick="openModal('שולחן עבודה מודרני', 150, 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'שולחן עבודה מודרני ואיכותי, מושלם למשרד או לבית. עיצוב נקי ומקצועי.')">פרטים</button>
+          <button class="quick-view">פרטים</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="decor">
+    <div class="product-card" data-category="prints">
       <div class="product-image-container">
         <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="אגרטל דקורטיבי גדול">
         <div class="category-label">הדפסות</div>
@@ -695,12 +688,12 @@
           <span class="price">מחיר לפי גודל וכמות</span>
         </div>
         <div class="product-actions">
-          <button class="quick-view" onclick="openModal('אגרטל דקורטיבי גדול', 60, 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'אגרטל מעוצב לבית, מושלם כקישוט מרכזי או להצגת פרחים. עיצוב מודרני ואלגנטי.')">פרטים</button>
+          <button class="quick-view">פרטים</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="kitchen">
+    <div class="product-card" data-category="prints">
       <div class="product-image-container">
         <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="תחתיות שיש מלוטש">
         <div class="category-label">הדפסות</div>
@@ -712,12 +705,12 @@
           <span class="price">מחיר לפי גודל וכמות</span>
         </div>
         <div class="product-actions">
-          <button class="quick-view" onclick="openModal('תחתיות שיש מלוטש', 30, 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'תחתיות טבעיות למניעת שריטות, עמידות וקלות לניקוי. סט של 4 יחידות.')">פרטים</button>
+          <button class="quick-view">פרטים</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="home">
+    <div class="product-card" data-category="candles">
       <div class="product-image-container">
         <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="שולחן סלון מעוצב">
         <div class="category-label">נרות</div>
@@ -729,12 +722,12 @@
           <span class="price">₪25</span>
         </div>
         <div class="product-actions">
-          <button class="quick-view" onclick="openModal('נר ריחני', 180, 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'נר ריחני מעוצב, מושלם ליצירת אווירה חמימה בבית.')">פרטים</button>
+          <button class="quick-view">פרטים</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="decor">
+    <div class="product-card" data-category="candles">
       <div class="product-image-container">
         <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="אגרטל צבעוני מעוצב">
         <div class="category-label">נרות</div>
@@ -746,12 +739,12 @@
           <span class="price">₪40</span>
         </div>
         <div class="product-actions">
-          <button class="quick-view" onclick="openModal('נר ריחני בינוני', 55, 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'נר ריחני בינוני מעוצב, מושלם ליצירת אווירה חמימה בבית.')">פרטים</button>
+          <button class="quick-view">פרטים</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="kitchen">
+    <div class="product-card" data-category="candles">
       <div class="product-image-container">
         <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="תחתיות מעוצבות">
         <div class="category-label">נרות</div>
@@ -763,12 +756,12 @@
           <span class="price">₪85</span>
         </div>
         <div class="product-actions">
-          <button class="quick-view" onclick="openModal('נר ריחני גדול', 85, 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'נר ריחני גדול מעוצב, מושלם ליצירת אווירה חמימה בבית.')">פרטים</button>
+          <button class="quick-view">פרטים</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="home">
+    <div class="product-card" data-category="3d">
       <div class="product-image-container">
         <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="שולחן אוכל רחב">
         <div class="category-label">הדפסות 3D</div>
@@ -780,12 +773,12 @@
           <span class="price">₪20</span>
         </div>
         <div class="product-actions">
-          <button class="quick-view" onclick="openModal('תג שם כפול', 20, 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'תג שם כפול מעוצב אישית, אפקט שם משתנה בזוויות שונות.')">פרטים</button>
+          <button class="quick-view">פרטים</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="personal">
+    <div class="product-card" data-category="3d">
       <div class="product-image-container">
         <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="אגרטל קטן לשולחן">
         <div class="category-label">הדפסות 3D</div>
@@ -797,12 +790,12 @@
           <span class="price">₪70</span>
         </div>
         <div class="product-actions">
-          <button class="quick-view" onclick="openModal('תמונה מעוצבת אישית', 70, 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'תמונה מעוצבת אישית לשולחן העבודה או השולחן בסלון.')">פרטים</button>
+          <button class="quick-view">פרטים</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="office">
+    <div class="product-card" data-category="3d">
       <div class="product-image-container">
         <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="שולחן צד מודרני">
         <div class="category-label">הדפסות 3D</div>
@@ -814,7 +807,7 @@
           <span class="price">₪30</span>
         </div>
         <div class="product-actions">
-          <button class="quick-view" onclick="openModal('מחזיק שקיות', 90, 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', 'מחזיק שקיות מעוצב, מושלם לארגון ושמירה על הסדר.')">פרטים</button>
+          <button class="quick-view">פרטים</button>
         </div>
       </div>
     </div>
@@ -871,8 +864,6 @@
   </div>
 </div>
 
-<!-- Cart removed -->
-
 <footer>
   <div class="footer-content">
     <div class="footer-section">
@@ -886,9 +877,11 @@
     <div class="footer-section">
       <h3>צור קשר</h3>
   <p><i class="fas fa-phone"></i> <span id="footerPhone">054-2569594</span></p>
-    <p><i class="fas fa-phone"></i> <span id="footerPhone">054-7038424</span></p>
-      <p><i class="fas fa-clock"></i>  זמינות בטלפון- א׳-ה׳ 9:00-18:00</p>
-  <p><i class="fas fa-envelope"></i> <span id="footerEmail">yuvalst3@gmail.com</span></p>
+  <p><i class="fas fa-phone"></i> <span id="footerPhone">054-7038424</span></p>
+  <p><i class="fas fa-clock"></i>  שעות פעילות- א׳-ה׳ 9:00-19:00, ו׳ 9:00-14:00</p>
+  <p><i class="fas fa-envelope"></i> yuvalst3@gmail.com</p>
+  <p><i class="fas fa-map-marker-alt"></i>  נקודות איסוף מוצרים: נוף הגליל, ראשון לציון</p>
+  <p><i class="fas fa-shipping-fast"></i>  משלוח למיקום אחר בהזמנה מעל 100 ש"ח</p>
     </div>
   </div>
   <p style="text-align: center; margin-top: 30px; opacity: 0.7;">&copy; 2025 Stone Products. כל הזכויות שמורות</p>
@@ -897,66 +890,45 @@
 <script>
   // Global Variables
   let currentFilter = 'all';
-  let footerEmail = document.addEventListener('DOMContentLoaded', function() {
-    return document.getElementById('footerEmail').textContent.trim();
-  });
+  let searchInput;
+
+  // Normalize Israeli phone numbers to international format without + or leading zeros
+  function normalizePhoneForWhatsApp(phone) {
+    if (!phone) return null;
+    const match = phone.match(/[+0-9][0-9()\-\s\/]{6,}[0-9]/);
+    let raw = match ? match[0] : phone;
+    let p = raw.replace(/[^0-9+]/g, '');
+    if (p.startsWith('+')) p = p.slice(1);
+    if (p.startsWith('0')) p = '972' + p.slice(1);
+    if (!/^[0-9]{9,15}$/.test(p)) return null;
+    return p;
+  }
 
   // Initialize the page
   document.addEventListener('DOMContentLoaded', function() {
     initializeEventListeners();
     animateOnScroll();
-    // Contact form submission
-      const contactForm = document.getElementById('contactForm');
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const formData = new FormData(contactForm);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const phone = formData.get('phone');
-        const message = formData.get('message');
-        const toEmail = document.getElementById('footerEmail').textContent.trim();
-        window.location.href = `mailto:${toEmail}?subject=New message from ${encodeURIComponent(name)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\nMessage: ' + message)}`;
-      });
-
-      // WhatsApp button handler - opens chat with the footer phone number
-      const whatsappButton = document.getElementById('whatsappButton');
+    // WhatsApp button handler - reads phone from footer and opens wa.me link
+    const whatsappButton = document.getElementById('whatsappButton');
+    if (whatsappButton) {
       whatsappButton.addEventListener('click', function() {
-        const footerPhone = document.getElementById('footerPhone').textContent.trim();
+        const footerPhoneEl = document.getElementById('footerPhone');
+        const footerPhone = footerPhoneEl ? footerPhoneEl.textContent.trim() : '';
         const normalized = normalizePhoneForWhatsApp(footerPhone);
         if (!normalized) {
           alert('מספר טלפון ב-footer לא תקין.');
           return;
         }
-        // Use wa.me link
-        const url = `https://wa.me/${normalized}`;
-        window.open(url, '_blank');
+        window.open(`https://wa.me/${normalized}`, '_blank');
       });
-
-      // Normalize Israeli phone numbers to international format without + or leading zeros (e.g., 054-1234567 -> 972541234567)
-      function normalizePhoneForWhatsApp(phone) {
-        if (!phone) return null;
-        // If multiple numbers like 054-1111111/054-2222222, pick the first digit sequence
-        const match = phone.match(/[+0-9][0-9()\-\s\/]{6,}[0-9]/);
-        let raw = match ? match[0] : phone;
-        // remove spaces, dashes, parentheses, slashes
-        let p = raw.replace(/[^0-9+]/g, '');
-        // If starts with +, remove + for wa.me
-        if (p.startsWith('+')) p = p.slice(1);
-        // If starts with 0 (local Israeli), replace leading 0 with 972
-        if (p.startsWith('0')) {
-          p = '972' + p.slice(1);
-        }
-        // If starts with 972 already, ok
-        if (!/^[0-9]{9,15}$/.test(p)) return null;
-        return p;
-      }
+    }
   });
 
   // Initialize Event Listeners
   function initializeEventListeners() {
-    // Search functionality
-    const searchInput = document.getElementById('searchInput');
-    searchInput.addEventListener('keyup', handleSearch);
+  // Search functionality
+  searchInput = document.getElementById('searchInput');
+  if (searchInput) searchInput.addEventListener('keyup', handleSearch);
 
     // Category filter
     const categoryBtns = document.querySelectorAll('.category-btn');
@@ -980,11 +952,62 @@
       });
     });
 
-    // Contact form
-    const contactForm = document.getElementById('contactForm');
-    contactForm.addEventListener('submit', handleContactForm);
+    // Delegated click handler for product quick-view buttons and modal internal buttons
+    document.body.addEventListener('click', function(e) {
+      const q = e.target.closest && e.target.closest('.quick-view');
+      if (q) {
+        // open modal using DOM-driven extractor
+        openModalFromBtn(q);
+        return;
+      }
 
-    // cart removed
+      const modalClose = e.target.closest && e.target.closest('.btn-close');
+      if (modalClose) {
+        closeModal();
+        return;
+      }
+      const modalContact = e.target.closest && e.target.closest('.btn-contact-modal');
+      if (modalContact) {
+        // Build a localized message using modal content
+        const modal = document.getElementById('productModal');
+        const nameEl = modal.querySelector('h2');
+        const priceEl = modal.querySelector('.modal-price');
+        const name = nameEl ? nameEl.textContent.trim() : '';
+        const price = priceEl ? priceEl.textContent.trim() : '';
+
+        const footerPhoneEl = document.getElementById('footerPhone');
+        const footerPhone = footerPhoneEl ? footerPhoneEl.textContent.trim() : '';
+        const normalized = normalizePhoneForWhatsApp(footerPhone);
+        if (!normalized) {
+          alert('מספר טלפון ב-footer לא תקין.');
+          return;
+        }
+
+        const message = `שלום, אני מעוניין/ת במוצר: ${name} - ${price}. אשמח לפרטים נוספים.`;
+        const url = `https://wa.me/${normalized}?text=` + encodeURIComponent(message);
+        window.open(url, '_blank');
+        return;
+      }
+    });
+
+    // Global image error handling (handles images that fail to load instead of inline onerror)
+    function handleImageError(e) {
+      const el = e.target;
+      if (el && el.tagName === 'IMG') {
+        // Prevent infinite loop if fallback also fails
+        if (!el.dataset._fallbacked) {
+          el.dataset._fallbacked = '1';
+          el.src = 'https://via.placeholder.com/500x300?text=Image+Unavailable';
+        }
+      }
+    }
+
+    // Capture phase listener will catch resource errors on images
+    document.body.addEventListener('error', handleImageError, true);
+    // Also attach to existing images
+    document.querySelectorAll('img').forEach(img => img.addEventListener('error', handleImageError));
+
+    // Contact form left intentionally minimal (WhatsApp button handles contact)
   }
 
   // Search functionality
@@ -1038,10 +1061,19 @@
 
 
   // Open product modal
+  // Open product modal (legacy API kept)
   function openModal(name, price, image, description) {
     const modal = document.getElementById('productModal');
     const modalContent = document.getElementById('modalContent');
-    
+    let priceDisplay = '';
+    if (price === null || price === undefined || price === '') {
+      priceDisplay = '';
+    } else if (typeof price === 'number' || /^[0-9.,]+$/.test(String(price).trim())) {
+      priceDisplay = '₪' + String(price).trim();
+    } else {
+      priceDisplay = String(price).trim();
+    }
+
     modalContent.innerHTML = `
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 40px;">
         <div>
@@ -1051,12 +1083,18 @@
           <h2 style="font-size: 2em; margin-bottom: 20px; color: var(--text-dark);">${name}</h2>
           <p style="font-size: 1.2em; line-height: 1.8; color: var(--text-light); margin-bottom: 30px;">${description}</p>
           <div style="margin-bottom: 30px;">
-            <span style="font-size: 2.5em; font-weight: 700; color: var(--secondary-color);">₪${price}</span>
+            <span class="modal-price" style="font-size: 2.5em; font-weight: 700; color: var(--secondary-color);">${priceDisplay}</span>
           </div>
-          <button onclick="closeModal()" 
-                  style="background: var(--secondary-color); color: white; border: none; padding: 15px 30px; border-radius: 30px; font-weight: 600; cursor: pointer; font-size: 16px;">
-            סגור
-          </button>
+          <div style="display:flex; gap:12px;">
+            <button class="btn-contact-modal" 
+                    style="background: #25D366; color: white; border: none; padding: 12px 22px; border-radius: 30px; font-weight: 600; cursor: pointer; font-size: 16px;">
+             הזמן מוצר
+            </button>
+            <button class="btn-close" 
+                    style="background: var(--secondary-color); color: white; border: none; padding: 12px 22px; border-radius: 30px; font-weight: 600; cursor: pointer; font-size: 16px;">
+              סגור
+            </button>
+          </div>
         </div>
       </div>
     `;
@@ -1064,7 +1102,26 @@
     modal.style.display = 'block';
   }
 
-  // Cart functionality removed
+  // Open modal from an element inside .product-card — reads the DOM so modal always matches card content
+  function openModalFromBtn(btn) {
+    if (!btn) return;
+    const card = btn.closest('.product-card');
+    if (!card) return;
+    // name
+    const nameEl = card.querySelector('.product-info h3');
+    const name = nameEl ? nameEl.textContent.trim() : '';
+    // description (first paragraph inside product-info)
+    const descEl = card.querySelector('.product-info p');
+    const description = descEl ? descEl.textContent.trim() : '';
+    // price (span.price)
+    const priceEl = card.querySelector('.price');
+    const price = priceEl ? priceEl.textContent.trim().replace(/[^0-9.,₪]/g, '') : '';
+    // image (img in product-image-container)
+    const imgEl = card.querySelector('.product-image-container img');
+    const image = imgEl ? (imgEl.getAttribute('src') || imgEl.src) : '';
+
+    openModal(name, price, image, description);
+  }
 
   // Close modal
   function closeModal() {
@@ -1074,15 +1131,7 @@
     });
   }
 
-  // Contact form handler
-  function handleContactForm(e) {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    
-    // Simulate form submission
-    showNotification('תודה על פנייתך! נחזור אליך בהקדם.', 'success');
-    e.target.reset();
-  }
+  // contact form handling removed (WhatsApp used)
 
   // Show notification
   function showNotification(message, type = 'success') {
