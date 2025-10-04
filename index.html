@@ -259,13 +259,14 @@
   .product-image-container {
     position: relative;
     overflow: hidden;
-    height: 220px;
+    height: 140px;
   }
   
   .product-card img { 
     width: 100%; 
     height: 100%; 
     object-fit: cover; 
+    object-position: center center; /* ensure center rectangle is visible */
     transition: transform 0.5s ease;
   }
   
@@ -287,13 +288,13 @@
 
   .category-label {
     position: absolute;
-    top: 15px;
-    left: 15px;
+    top: 3px;
+    left: 3px;
     background: var(--primary-color);
     color: white;
-    padding: 5px 12px;
+    padding: 5px 8px;
     border-radius: 20px;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -301,25 +302,21 @@
   }
   
   .product-info { 
-    padding: 25px; 
+    /* Reduced padding to tighten the gap between image and text */
+    padding: 6px 8px;
   }
   
   .product-info h3 { 
-    font-size: 1.3em; 
-    margin-bottom: 10px; 
+    font-size: 0.95em; 
+    margin-bottom: 2px; /* smaller gap under title */
     color: var(--text-dark);
-    font-weight: 600;
+    font-weight: 700;
+    line-height: 1.15;
   }
   
-  .product-info p { 
-    /* show a single-line truncated description for quick scanning */
-    display: block;
-    font-size: 0.95em;
-    margin-bottom: 8px;
-    color: var(--text-light);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  .product-info p {
+    /* hide descriptions on product cards (keep in DOM so modals can read them) */
+    display: none;
   }
   
   /* keep the original .price markup for modal/use, but hide the card price area
@@ -371,6 +368,48 @@
     background: rgba(255,255,255,0.92);
     box-shadow: 0 1px 0 rgba(0,0,0,0.06) inset;
   }
+
+  /* hide the old overlay badge (we'll use inline price next to the button) */
+  .price-badge { display: none; }
+
+  /* product actions: layout left-to-right inside the small action area so price sits left of button */
+  .product-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    direction: ltr; /* ensure ordering is left-to-right here */
+    justify-content: flex-start;
+  }
+
+  /* inline price element placed next to the details button */
+  .price-inline {
+    background: var(--secondary-color);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95em;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  }
+
+  /* per-card inline WhatsApp button */
+  .whatsapp-card {
+    background: #25D366;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95em;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.10);
+  }
+  .whatsapp-card i { font-size: 14px; }
+  .whatsapp-card:hover { transform: translateY(-2px); }
 
   /* compact price inside card */
   .price { 
@@ -701,7 +740,7 @@
         <h3>מדבקות צורניות</h3>
         <p> מדבקות צורניות מעוצבות, מושלמות לקישוט כל חלל. מינימום הזמנה 50 יחידות</p>
         <div class="price-container">
-          <span class="price">מחיר לפי גודל וכמות</span>
+          <span class="price">₪15-100</span>
         </div>
         <div class="product-actions">
           <button class="quick-view">פרטים</button>
@@ -736,7 +775,7 @@
         <h3>הזמנות/כרטיסים</h3>
         <p> נייר כרומו 300 גרם. מינימום הזמנה 50 יחידות</p>
         <div class="price-container">
-          <span class="price">מחיר לפי גודל וכמות</span>
+          <span class="price">₪15-100</span>
         </div>
         <div class="product-actions">
           <button class="quick-view">פרטים</button>
@@ -753,7 +792,7 @@
         <h3>מגנטים</h3>
         <p>מגנטים מעוצבים, מושלמים לקישוט כל חלל. </p>
         <div class="price-container">
-          <span class="price">מחיר לפי גודל וכמות</span>
+          <span class="price">₪15-100</span>
         </div>
         <div class="product-actions">
           <button class="quick-view">פרטים</button>
@@ -770,7 +809,7 @@
         <h3>שילוט PVC</h3>
         <p>שילוט PVC איכותי, עמיד במים ובתנאי חוץ. </p>
         <div class="price-container">
-          <span class="price">מחיר לפי גודל וכמות</span>
+          <span class="price">₪15-100</span>
         </div>
         <div class="product-actions">
           <button class="quick-view">פרטים</button>
@@ -949,7 +988,7 @@
   <p><i class="fas fa-clock"></i>  שעות פעילות- א׳-ה׳ 9:00-19:00, ו׳ 9:00-14:00</p>
   <p><i class="fas fa-envelope"></i> yuvalst3@gmail.com</p>
   <p><i class="fas fa-map-marker-alt"></i>  נקודות איסוף מוצרים: נוף הגליל, ראשון לציון</p>
-  <p><i class="fas fa-shipping-fast"></i>  משלוח למיקום אחר בהזמנה מעל 100 ש"ח</p>
+  <p><i class="fas fa-shipping-fast"></i>  משלוח למיקום אחר בהזמנה מעל 150 ש"ח</p>
     </div>
   </div>
   <p style="text-align: center; margin-top: 30px; opacity: 0.7;">&copy; 2025 Stone Products. כל הזכויות שמורות</p>
@@ -1075,18 +1114,71 @@
     // Also attach to existing images
     document.querySelectorAll('img').forEach(img => img.addEventListener('error', handleImageError));
 
-    // Create price badges on product images from existing .price spans
-    document.querySelectorAll('.product-card').forEach(card => {
-      const imgWrap = card.querySelector('.product-image-container');
-      const priceEl = card.querySelector('.price');
-      if (imgWrap && priceEl) {
-        // Avoid duplicate badges
-        if (!imgWrap.querySelector('.price-badge')) {
-          const badge = document.createElement('div');
-          badge.className = 'price-badge';
-          badge.textContent = priceEl.textContent.trim();
-          imgWrap.appendChild(badge);
+    // Place inline prices left of the quick-view button and remove overlay badges
+    function placeInlinePrices() {
+      document.querySelectorAll('.product-card').forEach(card => {
+        const actions = card.querySelector('.product-actions');
+        const priceEl = card.querySelector('.price');
+        const badge = card.querySelector('.price-badge');
+        const quick = card.querySelector('.quick-view');
+        const priceText = priceEl ? priceEl.textContent.trim() : '';
+
+        // remove overlay badge if present
+        if (badge) badge.remove();
+
+        if (!actions || !quick) return;
+
+        // Ensure price-inline exists and is placed before the quick button
+        let inline = actions.querySelector('.price-inline');
+        if (priceText) {
+          if (!inline) {
+            inline = document.createElement('div');
+            inline.className = 'price-inline';
+            actions.insertBefore(inline, quick);
+          }
+          inline.textContent = priceText;
+        } else if (inline) {
+          inline.remove();
         }
+
+        // Add per-card WhatsApp button (placed right before the quick button)
+        let waBtn = actions.querySelector('.whatsapp-card');
+        if (!waBtn) {
+          waBtn = document.createElement('button');
+          waBtn.type = 'button';
+          waBtn.className = 'whatsapp-card';
+          waBtn.innerHTML = '<i class="fab fa-whatsapp"></i><span>הזמן</span>';
+          actions.insertBefore(waBtn, quick);
+        }
+      });
+    }
+
+    placeInlinePrices();
+    // Re-run on DOM changes or resize just in case
+    window.addEventListener('resize', placeInlinePrices);
+
+    // Delegated handler for per-card WhatsApp buttons
+    document.body.addEventListener('click', function(e) {
+      const wa = e.target.closest && e.target.closest('.whatsapp-card');
+      if (wa) {
+        const card = wa.closest('.product-card');
+        if (!card) return;
+        const nameEl = card.querySelector('.product-info h3');
+        const priceEl = card.querySelector('.price');
+        const name = nameEl ? nameEl.textContent.trim() : '';
+        const price = priceEl ? priceEl.textContent.trim() : '';
+
+        const footerPhoneEl = document.getElementById('footerPhone');
+        const footerPhone = footerPhoneEl ? footerPhoneEl.textContent.trim() : '';
+        const normalized = normalizePhoneForWhatsApp(footerPhone);
+        if (!normalized) {
+          alert('מספר טלפון ב-footer לא תקין.');
+          return;
+        }
+
+        const message = `שלום, אני מעוניין/ת במוצר: ${name} - ${price}. אשמח לפרטים נוספים.`;
+        const url = `https://wa.me/${normalized}?text=` + encodeURIComponent(message);
+        window.open(url, '_blank');
       }
     });
 
