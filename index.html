@@ -312,15 +312,64 @@
   }
   
   .product-info p { 
-    display: none; /* hide descriptions in the card - details live in the modal */
+    /* show a single-line truncated description for quick scanning */
+    display: block;
+    font-size: 0.95em;
+    margin-bottom: 8px;
+    color: var(--text-light);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
+  /* keep the original .price markup for modal/use, but hide the card price area
+     since we're showing price as a badge on the image */
   .price-container {
-    display: flex;
-    justify-content: flex-start;
+    display: none;
+  }
+
+  /* Price badge overlay on product image */
+  .price-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--secondary-color);
+    color: white;
+    padding: 8px 12px 8px 18px; /* extra left padding for the hole */
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95em;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    z-index: 5;
+    display: inline-flex;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 12px;
+    position: absolute;
+  }
+  .price-badge::before {
+    /* triangular tail on the left to mimic a tag */
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 10px solid var(--secondary-color);
+  }
+  .price-badge::after {
+    /* small circular hole on the left side of the tag */
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.92);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.06) inset;
   }
 
   /* compact price inside card */
@@ -542,7 +591,8 @@
   @media (max-width: 768px) {
     header h1 { font-size: 2.5em; }
     .hero { padding: 60px 20px; }
-  .product-grid { grid-template-columns: 1fr; gap: 18px; }
+  /* Keep two columns on phones and small tablets */
+  .product-grid { grid-template-columns: repeat(2, minmax(140px, 1fr)); gap: 14px; }
     .product-image-container { height: 180px; }
     nav { gap: 15px; padding: 10px 0; }
     nav a { padding: 8px 15px; font-size: 14px; }
@@ -563,7 +613,8 @@
   
   @media (max-width: 480px) {
     header h1 { font-size: 2em; }
-    .product-grid { grid-template-columns: 1fr; }
+    /* Still show 2 columns on very small phones per your request */
+    .product-grid { grid-template-columns: repeat(2, minmax(120px, 1fr)); gap: 10px; }
     .product-image-container { height: 160px; }
     .search-section { padding: 20px; }
     #contact { padding: 40px 20px; }
@@ -1023,6 +1074,21 @@
     document.body.addEventListener('error', handleImageError, true);
     // Also attach to existing images
     document.querySelectorAll('img').forEach(img => img.addEventListener('error', handleImageError));
+
+    // Create price badges on product images from existing .price spans
+    document.querySelectorAll('.product-card').forEach(card => {
+      const imgWrap = card.querySelector('.product-image-container');
+      const priceEl = card.querySelector('.price');
+      if (imgWrap && priceEl) {
+        // Avoid duplicate badges
+        if (!imgWrap.querySelector('.price-badge')) {
+          const badge = document.createElement('div');
+          badge.className = 'price-badge';
+          badge.textContent = priceEl.textContent.trim();
+          imgWrap.appendChild(badge);
+        }
+      }
+    });
 
     // Contact form left intentionally minimal (WhatsApp button handles contact)
   }
